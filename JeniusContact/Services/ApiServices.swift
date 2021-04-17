@@ -37,8 +37,28 @@ class ApiServices {
     }
     
     func deleteContact(id: String, completion: @escaping (Bool) -> Void) {
-        AF.request(baseUrlHttp + baseUrlHttp + Endpoint + "/\(id)", method: .delete).validate().response() {
+        AF.request(baseUrlHttp + BaseUrl + Endpoint + "/\(id)", method: .delete).validate().response() {
             response in
+            switch response.result {
+            case .success:
+                completion(true)
+            case .failure(_):
+                completion(false)
+            }
+        }
+    }
+    
+    func addContact(firstName: String, lastName: String, age: Int, photo: String, completion: @escaping (Bool) -> Void) {
+        let newContact: [String: Any] = [
+            "firstName": firstName,
+            "lastName": lastName,
+            "age": age,
+            "photo": photo
+        ]
+        print(newContact)
+        AF.request(baseUrlHttp + BaseUrl + Endpoint, method: .post, parameters: newContact, encoding: JSONEncoding.default).response() {
+            response in
+            print("got respons \(String(describing: response.data))")
             switch response.result {
             case .success:
                 completion(true)

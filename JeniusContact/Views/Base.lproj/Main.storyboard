@@ -138,14 +138,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27V-Kw-fez">
-                                <rect key="frame" x="156" y="495" width="102" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TAKE PICTURE"/>
-                                <connections>
-                                    <action selector="takePicture:" destination="X2I-zx-L8W" eventType="touchUpInside" id="5RN-Jm-Na3"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9C8-Ce-24u">
                                 <rect key="frame" x="179" y="638" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -154,6 +146,19 @@
                                     <action selector="createContact:" destination="X2I-zx-L8W" eventType="touchUpInside" id="c9V-WA-X6M"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ca-HI-3qq">
+                                <rect key="frame" x="67" y="516" width="272" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Photo URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQ8-Mh-3iK">
+                                <rect key="frame" x="67" y="487" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bDS-1f-htS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -162,6 +167,7 @@
                         <outlet property="age" destination="bxk-9Z-k9F" id="AWG-rJ-qCV"/>
                         <outlet property="firstName" destination="WhK-23-yDL" id="kO2-6l-EMT"/>
                         <outlet property="lastName" destination="qKx-Az-sVC" id="qyt-xG-B24"/>
+                        <outlet property="photoUrl" destination="5Ca-HI-3qq" id="CZp-J4-LLc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5c-on-cBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

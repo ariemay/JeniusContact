@@ -23,6 +23,20 @@ struct Contact: Decodable {
     }
 }
 
+struct NewContact: Encodable {
+    var firstName: String
+    var lastName: String
+    var age: Int
+    var photo: String
+    
+    enum CodingKeys: String, CodingKey {
+        case firstName = "firstName"
+        case lastName = "lastName"
+        case age = "age"
+        case photo = "photo"
+    }
+}
+
 struct DataContact: Decodable {
     let message: String
     let data: [Contact]

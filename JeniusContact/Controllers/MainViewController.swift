@@ -7,14 +7,18 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+protocol MainProtocol {
+    func refreshTV()
+}
+
+class MainViewController: UIViewController, MainProtocol {
 
     @IBOutlet weak var tableView: UITableView!
     
     var apiCall = ApiServices()
     var data = [Contact]() {
         didSet{
-            tableView.reloadData()
+            refreshTV()
         }
     }
     
@@ -29,10 +33,18 @@ class MainViewController: UIViewController {
         })
     }
     
+    func refreshTV() {
+        tableView.reloadData()
+    }
+    
     func deleteConfirmation(id: String) -> Void {
         let alert = UIAlertController(title: "Do you want to delete this contact?", message: "Think twice.", preferredStyle: .alert)
 
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self](alert: UIAlertAction!) in apiCall.deleteContact(id: id, completion: { [self]
+            success in
+            print("delete success")
+            tableView.reloadData()
+        })}))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
 
         self.present(alert, animated: true)
